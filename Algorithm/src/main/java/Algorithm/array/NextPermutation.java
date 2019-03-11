@@ -1,5 +1,7 @@
 package Algorithm.array;
 
+import java.util.Arrays;
+
 /**
  * @ClassName : NextPermutation
  * @Description :
@@ -22,6 +24,41 @@ public class NextPermutation {
      */
 
     public static void solution(int[] nums){
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i + 1] <= nums[i]) {
+            i--;
+        }
+        if(i >= 0){
+            int j = nums.length - 1;
+            while (j >= 0 && nums[j] <= nums[i]) {
+                j--;
+            }
+            swap(nums,i,j);
 
+        }
+
+        reverse(nums,i + 1);
+
+    }
+
+    private static void swap(int[] nums,int first,int second){
+        int temp = nums[first];
+        nums[first] = nums[second];
+        nums[second] = temp;
+     }
+
+    private static void reverse(int[] nums,int begin){
+        int end = nums.length - 1;
+        while (begin < end){
+            swap(nums,begin,end);
+            begin++;
+            end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1,5,3,4,2};
+        solution(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }
