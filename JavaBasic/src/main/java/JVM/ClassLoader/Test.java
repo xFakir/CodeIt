@@ -1,7 +1,7 @@
 package JVM.ClassLoader;
 
 /**
- * @ClassName : Test
+ * @ClassName : BasicPractice
  * @Description :
  * @Author : xcx
  * @Date : 2019-03-09 16:49
