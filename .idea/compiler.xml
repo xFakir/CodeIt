@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Algorithm" />
         <module name="JavaBasic" />
+        <module name="Netty" />
       </profile>
     </annotationProcessing>
   </component>

@@ -11,6 +11,7 @@
     <modules>
         <module>Algorithm</module>
         <module>JavaBasic</module>
+        <module>Netty</module>
     </modules>
 
 
