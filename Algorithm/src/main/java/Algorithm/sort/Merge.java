@@ -10,6 +10,10 @@ package Algorithm.sort;
 public class Merge extends SortBasic{
     private static Comparable[] aux;
 
+    /**
+     * 辅助数组
+     * @param a
+     */
     public static void sort(Comparable[] a) {
         aux = new Comparable[a.length];
         sort(a,0,a.length - 1);
@@ -39,6 +43,37 @@ public class Merge extends SortBasic{
 
     public static void main(String[] args) {
         sort(setTestCase("57948513589"));
-        show(getResult()  );
+        show(getResult());
     }
+
+    /**
+     * 原地归并
+     * 自顶向下
+     */
+    public static void sort2(Comparable[] a) {
+        aux = new Comparable[a.length];
+        sort2(a,0,a.length - 1);
+    }
+
+    public static void sort2(Comparable[] a, int lo, int hi) {
+        if (hi <= lo)  return;
+        int mid = lo + (hi - lo)/2;
+        sort2(a,lo,mid);
+        sort2(a,mid,hi);
+        merge(a,lo,mid,hi);
+    }
+
+    /**
+     * 自底向上
+     * @param a
+     */
+    public static void sort3(Comparable[] a){
+        aux = new Comparable[a.length];
+        for (int sz=1; sz < a.length; sz = sz + sz) {
+            for (int lo = 0; lo < a.length - sz; lo += sz+sz){
+                merge(a,lo,lo+sz-1,Math.min(lo+sz+sz-1,a.length-1));
+            }
+        }
+    }
+
 }
